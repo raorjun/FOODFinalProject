@@ -21,7 +21,7 @@
             <VBox alignment="CENTER" spacing="10">
                <ImageView>
                   <image>
-                     <Image url="@../brain.png" />
+                     <Image url="https://www.onlygfx.com/wp-content/uploads/2021/09/brain-clipart-cover.jpg" />
                   </image>
                </ImageView>
                <Label text="Money Mind" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;" />
