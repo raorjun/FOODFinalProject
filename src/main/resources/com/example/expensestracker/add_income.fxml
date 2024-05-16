@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.expensestracker.ListView"
+            fx:controller="com.example.expensestracker.add_income"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>

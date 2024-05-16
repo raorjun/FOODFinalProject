@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.example.expensestracker.ViewIncomeController"
+           style="-fx-background-color: #1f1f1f; -fx-padding: 20;">
+
+    <BorderPane prefHeight="400" prefWidth="600" style="-fx-background-color: #272727; -fx-padding: 30; -fx-border-radius: 20px; -fx-border-color: #333333;">
+
+        <top>
+            <HBox style="-fx-spacing: 20;">
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="View Income" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;" />
+                </VBox>
+                <VBox alignment="CENTER" spacing="10">
+                    <Button text="Back" onAction="#goBackButtonAction" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-padding: 8 15; -fx-border-radius: 10px;" />
+                </VBox>
+            </HBox>
+        </top>
+
+        <center>
+            <LineChart style="-fx-background-color: #DDDDDD;">
+                <xAxis>
+                    <NumberAxis label="Month" style="-fx-text-fill: white;" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Income ($)" style="-fx-text-fill: white;" />
+                </yAxis>
+            </LineChart>
+        </center>
+
+        <bottom>
+            <Label text="© 2024 Money Mind. All Rights Reserved." style="-fx-font-size: 10px; -fx-text-fill: white;" />
+        </bottom>
+
+    </BorderPane>
+
+</StackPane>
