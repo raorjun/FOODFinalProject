@@ -15,6 +15,7 @@ public class MoneyMindApplication extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/expensestracker/dashboard.fxml"));
 
         // Set up the scene with the loaded FXML
+
         Scene scene = new Scene(root);
 
         // Set up the primary stage
