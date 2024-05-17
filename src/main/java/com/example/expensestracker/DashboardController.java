@@ -58,7 +58,7 @@ public class DashboardController {
     @FXML
     private void handleAddExpenses(ActionEvent event) {
         try {
-            Parent addExpensesParent = FXMLLoader.load(getClass().getResource("/com/example/expensestracker/addExpenses.fxml"));
+            Parent addExpensesParent = FXMLLoader.load(getClass().getResource("/com/example/expensestracker/addExpense.fxml"));
             Scene addExpensesScene = new Scene(addExpensesParent);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
