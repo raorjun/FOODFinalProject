@@ -26,9 +26,9 @@ public class AddIncomeController {
         }
         try {
             double amount = Double.parseDouble(amountText);
-            Income income = new Income(source, amount);
+            ViewIncome viewIncome = new ViewIncome(source, amount);
 
-            viewIncomeController.addIncome(income);
+            viewIncomeController.addIncome(viewIncome);
             showAlert("Success", "Income added successfully: \nSource: " + source + "\nAmount: $" + amount);
         } catch (NumberFormatException e) {
             showAlert("Error", "Enter a valid number.");

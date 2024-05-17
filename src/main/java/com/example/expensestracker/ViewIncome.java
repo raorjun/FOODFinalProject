@@ -1,10 +1,10 @@
 package com.example.expensestracker;
 
-public class Income {
+public class ViewIncome {
     private String source;
     private double amount;
 
-    public Income(String source, double amount) {
+    public ViewIncome(String source, double amount) {
         this.source = source;
         this.amount = amount;
     }

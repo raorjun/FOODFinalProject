@@ -23,10 +23,10 @@
 
       <center>
          <VBox alignment="CENTER" spacing="15">
-            <Button onAction="#viewExpensesButtonAction" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="View Expenses" />
-            <Button onAction="#viewIncomeButtonAction" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="View Income" />
-            <Button onAction="#addExpenseButtonAction" style="-fx-background-color: #FF5722; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="Add Expense" />
-            <Button onAction="#addIncomeButtonAction" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="Add Income" />
+            <Button onAction="#handleViewExpenses" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="View Expenses" />
+            <Button onAction="#handleViewIncome" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="View Income" />
+            <Button onAction="#handleAddExpenses" style="-fx-background-color: #FF5722; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="Add Expense" />
+            <Button onAction="#handleAddIncome" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="Add Income" />
          </VBox>
       </center>
 

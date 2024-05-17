@@ -1,10 +1,10 @@
 package com.example.expensestracker;
 
-public class Expense{
+public class ViewExpense {
     private String expenseName;
     private double amount;
 
-    public Expense(String expenseName, double amount) {
+    public ViewExpense(String expenseName, double amount) {
         this.expenseName = expenseName;
         this.amount = amount;
     }

@@ -26,9 +26,9 @@ public class AddExpenseController {
         }
         try {
             double amount = Double.parseDouble(amountText);
-            Expense expense = new Expense(expenseName, amount);
+            ViewExpense viewExpense = new ViewExpense(expenseName, amount);
             // Pass the new expense to the ViewExpensesController
-            viewExpensesController.addExpense(expense);
+            viewExpensesController.addExpense(viewExpense);
             showAlert("Success", "Expense added successfully: \nName: " + expenseName + "\nAmount: $" + amount);
         } catch (NumberFormatException e) {
             showAlert("Error", "Invalid amount format. Please enter a valid number.");
