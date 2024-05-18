@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane style="-fx-background-color: #1f1f1f; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.expensestracker.DashboardController">
+
+   <BorderPane prefHeight="400" prefWidth="300" style="-fx-background-color: #272727; -fx-padding: 30; -fx-border-radius: 20px; -fx-border-color: #333333;">
+
+      <top>
+         <HBox alignment="CENTER" style="-fx-spacing: 20;">
+            <VBox alignment="CENTER" spacing="10">
+               <ImageView fitHeight="76.0" fitWidth="131.0">
+                  <image>
+                     <Image url="https://www.onlygfx.com/wp-content/uploads/2021/09/brain-clipart-cover.jpg" />
+                  </image>
+               </ImageView>
+               <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;" text="Money Mind" />
+            </VBox>
+         </HBox>
+      </top>
+
+      <center>
+         <VBox alignment="CENTER" spacing="15">
+            <Button onAction="#handleViewExpenses" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="View Expenses" />
+            <Button onAction="#handleViewIncome" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="View Income" />
+            <Button onAction="#handleAddExpenses" style="-fx-background-color: #FF5722; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="Add Expense" />
+            <Button onAction="#handleAddIncome" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" text="Add Income" />
+         </VBox>
+      </center>
+
+      <bottom>
+         <Label prefHeight="50.0" prefWidth="226.0" style="-fx-font-size: 10px; -fx-text-fill: white;" text="© 2024 Money Mind. All Rights Reserved." />
+      </bottom>
+
+   </BorderPane>
+
+</StackPane>
