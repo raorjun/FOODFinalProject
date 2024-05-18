@@ -6,14 +6,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.example.expensestracker.ViewExpensesController"
            style="-fx-background-color: #1f1f1f; -fx-padding: 20;">
 
-    <BorderPane prefHeight="400" prefWidth="600" style="-fx-background-color: #272727; -fx-padding: 30; -fx-border-radius: 20px; -fx-border-color: #333333;">
+    <BorderPane prefHeight="700" prefWidth="600" style="-fx-background-color: #272727; -fx-padding: 30; -fx-border-radius: 20px; -fx-border-color: #333333;">
 
         <top>
             <HBox style="-fx-spacing: 20;">
@@ -27,13 +30,28 @@
         </top>
 
         <center>
-            <PieChart style="-fx-background-color: #DDDDDD;">
-                <!-- Add pie chart data here -->
-            </PieChart>
+            <PieChart fx:id="expensePieChart" style="-fx-background-color: #DDDDDD;" />
         </center>
 
         <bottom>
-            <Label text="© 2024 Money Mind. All Rights Reserved." style="-fx-font-size: 10px; -fx-text-fill: white;" />
+            <VBox>
+                <TableView fx:id="expenseTableView" prefWidth="500" prefHeight="200">
+                    <columns>
+                        <TableColumn fx:id="expenseNameColumn" text="Expense Name" prefWidth="250">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="name" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="expenseAmountColumn" text="Amount" prefWidth="250">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="amount" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+
+                <Label text="© 2024 Money Mind. All Rights Reserved." style="-fx-font-size: 10px; -fx-text-fill: white;" />
+            </VBox>
         </bottom>
 
     </BorderPane>

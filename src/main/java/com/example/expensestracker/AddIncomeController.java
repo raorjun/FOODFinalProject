@@ -1,50 +1,69 @@
 package com.example.expensestracker;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 public class AddIncomeController {
 
     @FXML
-    private TextField sourceTextField;
+    private TextField monthTextField;
 
     @FXML
     private TextField amountTextField;
 
-    @FXML
-    private ViewIncomeController viewIncomeController;
+    private static ObservableList<Income> incomes = FXCollections.observableArrayList();
+
+    public static ObservableList<Income> getIncomes() {
+        return incomes;
+    }
 
     @FXML
-    void addIncomeButtonAction(ActionEvent event) {
-        String source = sourceTextField.getText();
-        String amountText = amountTextField.getText();
-        if (source.isEmpty() || amountText.isEmpty()) {
-            showAlert("Error", "Please enter both source and amount.");
-            return;
-        }
+    private void addIncomeButtonAction(ActionEvent event) {
+        Hardware.playButtonSoundEffect();
+
         try {
-            double amount = Double.parseDouble(amountText);
-            ViewIncome viewIncome = new ViewIncome(source, amount);
+            int month = Integer.parseInt(monthTextField.getText());
+            double amount = Double.parseDouble(amountTextField.getText());
 
-            viewIncomeController.addIncome(viewIncome);
-            showAlert("Success", "Income added successfully: \nSource: " + source + "\nAmount: $" + amount);
+            if (month < 0 || month > 12) {
+                throw new IllegalArgumentException("Month must be between 0 and 12.");
+            }
+
+            Income income = new Income(month, amount);
+            incomes.add(income);
+
+            // Optionally, clear the text fields after adding the income
+            monthTextField.clear();
+            amountTextField.clear();
         } catch (NumberFormatException e) {
-            showAlert("Error", "Enter a valid number.");
+            // Handle invalid input (e.g., show an error message to the user)
+            e.printStackTrace();
         }
     }
 
     @FXML
-    void goBackButtonAction(ActionEvent event) {
-        sourceTextField.getScene().getWindow().hide();
-    }
+    private void goBackButtonAction(ActionEvent event) {
+        Hardware.playButtonSoundEffect();
 
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
+        try {
+            Parent dashboardParent = FXMLLoader.load(getClass().getResource("/com/example/expensestracker/dashboard.fxml"));
+            Scene dashboardScene = new Scene(dashboardParent);
+
+            // Getting the stage from the event's source (the button in this case)
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(dashboardScene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

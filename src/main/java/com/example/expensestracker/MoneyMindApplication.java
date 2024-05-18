@@ -1,4 +1,3 @@
-// Main.java
 package com.example.expensestracker;
 
 import javafx.application.Application;
@@ -7,24 +6,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class MoneyMindApplication extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        // Load the dashboard FXML file
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/expensestracker/dashboard.fxml"));
-
-        // Set up the scene with the loaded FXML
-
+    public void start(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
         Scene scene = new Scene(root);
-
-        // Set up the primary stage
-        primaryStage.setTitle("Money Mind");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setScene(scene);
+        stage.setTitle("Money Mind Dashboard");
+        stage.show();
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 }

@@ -1,5 +1,5 @@
-// DashboardController.java
 package com.example.expensestracker;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,57 +12,38 @@ import javafx.scene.Node;
 import java.io.IOException;
 
 public class DashboardController {
-
     @FXML
     private void handleViewIncome(ActionEvent event) {
-        try {
-            Parent incomeViewParent = FXMLLoader.load(getClass().getResource("/com/example/expensestracker/viewIncome.fxml"));
-            Scene incomeViewScene = new Scene(incomeViewParent);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(incomeViewScene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Hardware.playButtonSoundEffect();
+        loadScene(event, "/com/example/expensestracker/viewIncome.fxml");
     }
 
     @FXML
     private void handleViewExpenses(ActionEvent event) {
-        try {
-            Parent expensesViewParent = FXMLLoader.load(getClass().getResource("/com/example/expensestracker/viewExpenses.fxml"));
-            Scene expensesViewScene = new Scene(expensesViewParent);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(expensesViewScene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Hardware.playButtonSoundEffect();
+        loadScene(event, "/com/example/expensestracker/viewExpenses.fxml");
     }
 
     @FXML
     private void handleAddIncome(ActionEvent event) {
-        try {
-            Parent addIncomeParent = FXMLLoader.load(getClass().getResource("/com/example/expensestracker/addIncome.fxml"));
-            Scene addIncomeScene = new Scene(addIncomeParent);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(addIncomeScene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Hardware.playButtonSoundEffect();
+        loadScene(event, "/com/example/expensestracker/addIncome.fxml");
     }
 
     @FXML
     private void handleAddExpenses(ActionEvent event) {
+        Hardware.playButtonSoundEffect();
+        loadScene(event, "/com/example/expensestracker/addExpense.fxml");
+    }
+
+    @FXML
+    private void loadScene(ActionEvent event, String fxmlFile) {
         try {
-            Parent addExpensesParent = FXMLLoader.load(getClass().getResource("/com/example/expensestracker/addExpense.fxml"));
-            Scene addExpensesScene = new Scene(addExpensesParent);
+            Parent parent = FXMLLoader.load(getClass().getResource(fxmlFile));
+            Scene scene = new Scene(parent);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(addExpensesScene);
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

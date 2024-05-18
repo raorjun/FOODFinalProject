@@ -1,20 +1,20 @@
 package com.example.expensestracker;
 
-public class ViewIncome {
-    private String source;
+public class Income {
+    private int month;
     private double amount;
 
-    public ViewIncome(String source, double amount) {
-        this.source = source;
+    public Income(int month, double amount) {
+        this.month = month;
         this.amount = amount;
     }
 
-    public String getSource() {
-        return source;
+    public int getMonth() {
+        return month;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setMonth(int month) {
+        this.month = month;
     }
 
     public double getAmount() {

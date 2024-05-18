@@ -36,7 +36,7 @@
                     <Label text="Amount ($):" style="-fx-font-size: 14px; -fx-text-fill: white;" />
                     <TextField fx:id="amountTextField" />
                 </HBox>
-                <Button text="Add Expense" onAction="#addExpenseButtonAction" style="-fx-background-color: #FF5722; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" />
+                <Button text="Add Expense" onAction="#addExpenseButtonAction" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-padding: 15 30; -fx-border-radius: 10px;" />
             </VBox>
         </center>
 

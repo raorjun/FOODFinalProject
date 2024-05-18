@@ -1,9 +1,17 @@
 package com.example.expensestracker;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class AddExpenseController {
 
@@ -13,38 +21,46 @@ public class AddExpenseController {
     @FXML
     private TextField amountTextField;
 
-    @FXML
-    private ViewExpensesController viewExpensesController;
+    private static ObservableList<Expense> expenses = FXCollections.observableArrayList();
+
+    public static ObservableList<Expense> getExpenses() {
+        return expenses;
+    }
 
     @FXML
-    void addExpenseButtonAction(ActionEvent event) {
-        String expenseName = expenseNameTextField.getText();
-        String amountText = amountTextField.getText();
-        if (expenseName.isEmpty() || amountText.isEmpty()) {
-            showAlert("Error", "Please enter both expense name and amount.");
-            return;
-        }
+    private void addExpenseButtonAction(ActionEvent event) {
+        Hardware.playButtonSoundEffect();
+
         try {
-            double amount = Double.parseDouble(amountText);
-            ViewExpense viewExpense = new ViewExpense(expenseName, amount);
-            // Pass the new expense to the ViewExpensesController
-            viewExpensesController.addExpense(viewExpense);
-            showAlert("Success", "Expense added successfully: \nName: " + expenseName + "\nAmount: $" + amount);
+            String name = expenseNameTextField.getText();
+            double amount = Double.parseDouble(amountTextField.getText());
+
+            Expense expense = new Expense(name, amount);
+            expenses.add(expense);
+
+            // Optionally, clear the text fields after adding the expense
+            expenseNameTextField.clear();
+            amountTextField.clear();
         } catch (NumberFormatException e) {
-            showAlert("Error", "Invalid amount format. Please enter a valid number.");
+            // Handle invalid input (e.g., show an error message to the user)
+            e.printStackTrace();
         }
     }
 
     @FXML
-    void goBackButtonAction(ActionEvent event) {
-        expenseNameTextField.getScene().getWindow().hide();
-    }
+    private void goBackButtonAction(ActionEvent event) {
+        Hardware.playButtonSoundEffect();
 
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
+        try {
+            Parent dashboardParent = FXMLLoader.load(getClass().getResource("/com/example/expensestracker/dashboard.fxml"));
+            Scene dashboardScene = new Scene(dashboardParent);
+
+            // Getting the stage from the event's source (the button in this case)
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(dashboardScene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

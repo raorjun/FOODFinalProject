@@ -1,20 +1,20 @@
 package com.example.expensestracker;
 
-public class ViewExpense {
-    private String expenseName;
+public class Expense {
+    private String name;
     private double amount;
 
-    public ViewExpense(String expenseName, double amount) {
-        this.expenseName = expenseName;
+    public Expense(String name, double amount) {
+        this.name = name;
         this.amount = amount;
     }
 
-    public String getExpenseName() {
-        return expenseName;
+    public String getName() {
+        return name;
     }
 
-    public void setExpenseName(String expenseName) {
-        this.expenseName = expenseName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getAmount() {

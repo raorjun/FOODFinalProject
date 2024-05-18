@@ -28,12 +28,12 @@
         </top>
 
         <center>
-            <LineChart style="-fx-background-color: #DDDDDD;">
-                <xAxis>
-                    <NumberAxis label="Month" style="-fx-text-fill: white;" />
+            <LineChart fx:id="incomeLineChart" style="-fx-background-color: #DDDDDD;">
+                <xAxis>s
+                    <NumberAxis label="Month (0-12)" upperBound="12" tickUnit="1" />
                 </xAxis>
                 <yAxis>
-                    <NumberAxis label="Income ($)" style="-fx-text-fill: white;" />
+                    <NumberAxis label="Amount ($)" />
                 </yAxis>
             </LineChart>
         </center>
